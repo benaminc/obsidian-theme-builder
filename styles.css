@@ -1,0 +1,14 @@
+/*
+ * Folder Themer base styles.
+ *
+ * The actual per-folder colors are injected at runtime by main.js into a
+ * <style id="folder-themer-folders"> element (see applyFolderColors). This
+ * file holds only static, structural styling.
+ */
+
+/* Keep folder/file titles using their assigned color for the whole row,
+   including when hovered, so the rotation stays readable. */
+.nav-folder-title,
+.nav-file-title {
+  transition: color 120ms ease;
+}
