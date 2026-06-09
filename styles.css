@@ -12,3 +12,8 @@
 .nav-file-title {
   transition: color 120ms ease;
 }
+
+/* Tighten the explanatory notes under section headings in the settings tab. */
+.folder-themer-note {
+  margin-top: 0;
+}

@@ -73,3 +73,13 @@ Settings → Community plugins.
   require private API).
 - Notes sitting directly in the **vault root** (not in any folder) are left at
   the default color.
+
+## Privacy
+
+This plugin runs entirely locally. It makes **no network requests**, loads no
+remote assets, and collects or transmits **no data or telemetry**. All it does
+is read your vault's folder structure and inject CSS to color the interface.
+
+## License
+
+Released under the [MIT License](LICENSE).

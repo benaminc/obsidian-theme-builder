@@ -127,6 +127,7 @@ class FolderThemerPlugin extends Plugin {
   onunload() {
     if (this.folderStyleEl) this.folderStyleEl.remove();
     if (this.appThemeStyleEl) this.appThemeStyleEl.remove();
+    document.body.classList.remove('folder-themer-app-theme');
     window.clearTimeout(this._refreshTimer);
   }
 
@@ -405,10 +406,8 @@ class FolderThemerSettingTab extends PluginSettingTab {
       text:
         'Colors are applied to top-level folders in this order and wrap around. ' +
         'Order matters — use the arrows to reorder.',
-      cls: 'setting-item-description',
+      cls: 'setting-item-description folder-themer-note',
     });
-    desc.style.marginTop = '0';
-
     const palette = this.plugin.settings.palette;
 
     palette.forEach((color, index) => {
@@ -477,10 +476,8 @@ class FolderThemerSettingTab extends PluginSettingTab {
         'At these folders the rotation restarts: their direct subfolders begin ' +
         'a fresh pass through the palette, while notes directly inside keep the ' +
         "folder's own color.",
-      cls: 'setting-item-description',
+      cls: 'setting-item-description folder-themer-note',
     });
-    desc.style.marginTop = '0';
-
     const selected = this.plugin.settings.restartFolders;
 
     // All vault folders not already selected, for the add dropdown.
@@ -521,9 +518,8 @@ class FolderThemerSettingTab extends PluginSettingTab {
     if (selected.length === 0) {
       const none = containerEl.createEl('p', {
         text: 'No restart folders yet.',
-        cls: 'setting-item-description',
+        cls: 'setting-item-description folder-themer-note',
       });
-      none.style.marginTop = '0';
     }
 
     selected.forEach((path, index) => {
@@ -549,10 +545,8 @@ class FolderThemerSettingTab extends PluginSettingTab {
         "Obsidian's accent (links, buttons, toggles, selection); other colors " +
         'are used for headings, tags and callouts. Backgrounds are left ' +
         'untouched, and the theme follows your light/dark toggle.',
-      cls: 'setting-item-description',
+      cls: 'setting-item-description folder-themer-note',
     });
-    desc.style.marginTop = '0';
-
     new Setting(containerEl)
       .setName('Apply app theme')
       .setDesc('Master switch for the palette-driven app theme.')
